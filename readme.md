@@ -1,93 +1,50 @@
 
-# Europäische NATO Mitglieder
+# Schweizer Volksabstimmungen
 
-In dieser Übung werden wir die NATO Mitgliedstaaten Europas visualisieren. Der Kartentyp in diesem Fall ist eine kategorische Choroplethenkarte.
+In dieser Übung geht es darum eine Karte der Schweiz zu erstellen, die Volksabstimmungsresultate zeigt.
 
-Die geografischen Daten kommen von [NaturalEarth](https://www.naturalearthdata.com/downloads/), und die Informationen über NATO-Mitgliedstaaten kommen von der [NATO website](https://www.nato.int/cps/em/natohq/topics_52044.htm).
+https://abstimmungen.tagesanzeiger.ch/2019-05-19/1-steuerreform-und-ahv-finanzierung
+http://www.geo.uzh.ch/microsite/giva/projects2013/group6/
+
+Die Basiskarte (Kantone) ist bereits vorgegeben. Du kannst eine der drei vorgegebenen Abstimmungen zur visualisierung wählen.
 
 ## Aufgabe
 
-1. Erstelle eine Karte mit einem 4:3 Format (800x600), die auf Europa fokussiert ist. Wähle dabei eine geeignete Karteprojektion für eine Choroplethenkarte.
+1. Erstelle eine Karte in einem passenden Format (z.B. 1:1 — 800x800, 4:3 — 800x600), die auf die Schweiz fokussiert ist (siehe Hinweis 1).
 
-2. Färbe die NATO Mitgliedstaaten dunkelblau (`#004990`) ein (siehe [NATO style guidelines](https://www.nato.int/vigs/pdf/NATO-VIGs-2016-en.pdf)).
+2. Färbe die Kantone je nach Abstimmungsresultate ein ein (siehe Hinweis 2).
 
 3. Erstelle eine Legende für die Farben in deiner Karte.
 
-4. Gib deiner Karte einen Titel.
+4. Gib deiner Karte einen Titel. Überleg dir ob die Karte etwas besonderes zeigt. Gibt es Tendenzen? Gibt es hier eine Story?
 
 5. Füge Anmerkungen, disclaimer, und Datenquellen hinzu, wo nötig.
+
+6. Mache deine Karte interaktiv mit einem Tooltip.
+
+7. Exportiere die Karte aus dem Browser und bereite eine Version für Twitter (Karte mit Titel, Visualisierung, Legende, Anmerkungen als jpeg).
 
 ## Hinweise
 
 #### 1. Kartenprojektion
 
-Ein guter Einstiegspunkt zu Kartenprojektionen für Europa ist [dieses observable notebook](https://observablehq.com/@toja/five-map-projections-for-europe).
-
-#### 2. Javascript objekte durchsuchen
-
-In dieser Übung musst du einen Array von Javascript Objekten dursuchen, um herauszufinden welche Länder NATO-Mitglieder sind. Du kannst einen Array mit der `.find` methode durchsuchen.
+Da wir hier d3 und d3 Projektionen verwenden, werden wir eine spezielle Version der Albers projektion verwenden. Die Albers Kartenprojektion ist flächetreu, also geeignet für eine Choroplethenkarte.
 
 ```js
-
-const data = [
-  { NAME: "France", ADM0_A3: "FRA" },
-  { NAME: "Germany", ADM0_A3: "DEU" },
-  { NAME: "Switzerland", ADM0_A3: "CHE" },
-]
-
-const country = data.find(function(dataPoint) {
-  return dataPoint.ADM0_A3 === "CHE"
-})
-
-// => country = { NAME: "Switzerland", ADM0_A3 }
-
-const country2 = data.find(function(dataPoint) {
-  return dataPoint.ADM0_A3 === "CHN"
-})
-
-// => country2 = undefined
-
+const projection = d3.geoAlbers()
+  .center([0, 46.7])
+  .rotate([-9, 0, 0])
+  .parallels([40, 50])
+  .scale(12500)
 ```
 
-Du kannst das auch verkürzen mit einer Pfeilfunktion:
+#### 2. Colorscales
 
 ```js
-const country = data.find(d => d.ADM0_A3 === "CHE")
-```
-
-#### 3. Data-driven fill
-
-Um eine Form anhand der verbundenen Datenattribute mit einer Farbe zu füllen musst du eine Funktion in `.attr()` benutzen.
-
-```js
-
-const members = [
-  { NAME: "France", iso3: "FRA" },
-  { NAME: "Germany", iso3: "DEU" },
-  {...}
-]
-
-const shapes = svg.selectAll("path")
-  .data(countries.features)
-  .enter()
-  .append("path")
-    .attr("d", function(d) {
-      
-      // Finde die nato daten für ein Land:
-      const natoMetaData = members.find(member => member.iso3 === d.ISO_A3)
-      
-      // Wenn das Land kein NATO Mitglied ist (wenn 
-      // `natoMetaData` nichts findet), wird es auf
-      // der Karte grau eingefüllt
-      return natoMetaData ? "#004990" : "#DDDDDD"
-    })
+const colorScale = d3.scaleThreshold()
+  .domain([0,30,100])
+  .range(["#000","#FFF"])
 
 ```
 
 > ⚠️ Die Funktion in `.attr()` wird für jeden Datenpunkt einmal ausgeführt.
-
-
-## Weiteres
-
-Wenn dir diese Aufgabe zu einfach ist, dann kannst du versuchen den [Hauptsitz von NATO in Brüssel](https://en.wikipedia.org/wiki/NATO_headquarters) auf deiner Karte anzuzeigen.
-
