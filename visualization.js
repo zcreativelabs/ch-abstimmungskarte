@@ -5,6 +5,11 @@ document.addEventListener("DOMContentLoaded", () => {
       d3.csv("/referendum.csv")
         .then(yesVotes => {
 
+          // ====================
+
+          // Visualisierung...
+
+          // ====================
 
         })
     })

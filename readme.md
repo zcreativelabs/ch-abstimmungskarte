@@ -8,6 +8,8 @@ http://www.geo.uzh.ch/microsite/giva/projects2013/group6/
 
 Die Basiskarte (Kantone) ist bereits vorgegeben. Bei der Volksabstimmung handelt es sich um das "Bundesgesetz über Radio und Fernsehen". Es wurde mit 50.8% angenommen. Du kannst eine andere Abstimmung wählen.
 
+https://www.atlas.bfs.admin.ch/maps/12/de/12344_12343_5401_259/20368.html
+
 ## Aufgabe
 
 1. Erstelle eine Karte in einem passenden Format (z.B. 1:1 — 800x800, 4:3 — 800x600), die auf die Schweiz fokussiert ist (siehe Hinweis 1).
