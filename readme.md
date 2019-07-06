@@ -6,17 +6,17 @@ In dieser Übung geht es darum eine Karte der Schweiz zu erstellen, die Volksabs
 https://abstimmungen.tagesanzeiger.ch/2019-05-19/1-steuerreform-und-ahv-finanzierung
 http://www.geo.uzh.ch/microsite/giva/projects2013/group6/
 
-Die Basiskarte (Kantone) ist bereits vorgegeben. Du kannst eine der drei vorgegebenen Abstimmungen zur visualisierung wählen.
+Die Basiskarte (Kantone) ist bereits vorgegeben. Bei der Volksabstimmung handelt es sich um das "Bundesgesetz über Radio und Fernsehen". Es wurde mit 50.8% angenommen. Du kannst eine andere Abstimmung wählen.
 
 ## Aufgabe
 
 1. Erstelle eine Karte in einem passenden Format (z.B. 1:1 — 800x800, 4:3 — 800x600), die auf die Schweiz fokussiert ist (siehe Hinweis 1).
 
-2. Färbe die Kantone je nach Abstimmungsresultate ein ein (siehe Hinweis 2).
+2. Färbe die Kantone nach Abstimmungsresultaten ein (siehe Hinweis 2).
 
-3. Erstelle eine Legende für die Farben in deiner Karte.
+3. Erstelle eine Legende für die Farben in der Karte.
 
-4. Gib deiner Karte einen Titel. Überleg dir ob die Karte etwas besonderes zeigt. Gibt es Tendenzen? Gibt es hier eine Story?
+4. Gib der Karte einen Titel. Überleg dir ob die Karte etwas besonderes zeigt. Gibt es Tendenzen? Gibt es hier eine Story?
 
 5. Füge Anmerkungen, disclaimer, und Datenquellen hinzu, wo nötig.
 
@@ -42,8 +42,8 @@ const projection = d3.geoAlbers()
 
 ```js
 const colorScale = d3.scaleThreshold()
-  .domain([0,30,100])
-  .range(["#000","#FFF"])
+  .domain([30,35,40,45,50,55,60,65,70,100])
+  .range(['#d0001b', '#e0513c', '#ee7e5f', '#f7a684', '#fdceaa', '#d0e0af', '#a6c185', '#7da35b', '#538633', '#256900'])
 
 ```
 
