@@ -48,5 +48,3 @@ const colorScale = d3.scaleThreshold()
   .range(["#d0001b", "#e0513c", "#ee7e5f", "#f7a684", "#fdceaa", "#d0e0af", "#a6c185", "#7da35b", "#538633", "#256900"])
 
 ```
-
-> ⚠️ Die Funktion in `.attr()` wird für jeden Datenpunkt einmal ausgeführt.
