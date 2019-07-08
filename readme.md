@@ -16,7 +16,7 @@ https://www.atlas.bfs.admin.ch/maps/12/de/12344_12343_5401_259/20368.html
 
 1. Erstellt eine Karte in einem passenden Format (z.B. 1:1 — 800x800, 4:3 — 800x600), die auf die Schweiz fokussiert ist (siehe Hinweis 1).
 
-2. Färbt die Kantone nach Abstimmungsresultaten ein (siehe Hinweis 2).
+2. Färbt die Kantone nach Abstimmungsresultaten ein (siehe Hinweis 2). Wählt dabei eine gute Farbskala aus, die von allen gut gelesen werden kann.
 
 3. Erstellt eine Legende für die Farben in der Karte.
 
