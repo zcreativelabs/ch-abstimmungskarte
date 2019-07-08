@@ -46,7 +46,7 @@ const projection = d3.geoAlbers()
 
 #### 2. Colorscales
 
-Um die Abstimmungsresultate auf der Karte zu zeigen kannst du eine Threshold-Skala benutzen. Sie unterteilt die Daten in Segmente. Die Skala hier ist ähnlich wie die aus dem [Tagesanzeiger Beispiel](https://abstimmungen.tagesanzeiger.ch/2019-05-19/1-steuerreform-und-ahv-finanzierung).
+Um die Abstimmungsresultate auf der Karte zu zeigen könnt ihr eine Threshold-Skala benutzen. Sie unterteilt die Daten in Segmente. Die Unterteilung hier ist ähnlich wie die aus dem [Tagesanzeiger Beispiel](https://abstimmungen.tagesanzeiger.ch/2019-05-19/1-steuerreform-und-ahv-finanzierung).
 
 ```js
 const colorScale = d3.scaleThreshold()
